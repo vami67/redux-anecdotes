@@ -6,6 +6,8 @@ const App = () => {
   const anecdotes = useSelector(state => state)
   const dispatch = useDispatch()
 
+  anecdotes.sort((a, b) => parseFloat(a.likes) - parseFloat(b.likes));
+
   const vote = (id) => {
     console.log('vote', id)
     dispatch(voteAnecdote(id))
@@ -21,17 +23,23 @@ const App = () => {
   return (
     <div>
       <h2>Anecdotes</h2>
-      {anecdotes.map(anecdote =>
+
+      {anecdotes
+      .sort((a, b) => b.votes - a.votes)
+      .map(anecdote =>
         <div key={anecdote.id}>
           <div>
             {anecdote.content}
           </div>
           <div>
             has {anecdote.votes}
-            <button onClick={() => vote(anecdote.id)}>vote</button>
+            <button onClick={() => vote(anecdote.id)}>
+              vote
+            </button>
           </div>
         </div>
       )}
+
       <h2>create new</h2>
       <form onSubmit={addAnecdote}>
         <div><input name='anecdote' /></div>

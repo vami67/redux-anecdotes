@@ -42,8 +42,8 @@ const AnecdoteList = (props) => {
               key={anecdote.id}
               anecdote={anecdote}
               handleClick={() => {
-                dispatch(voteAnecdote(anecdote.id))
-                dispatch(setNotification("You voted '" + anecdote.content + "'"))
+                dispatch(voteAnecdote(anecdote))
+                //dispatch(setNotification("You voted '" + anecdote.content + "'"))
               }
               } />
           )

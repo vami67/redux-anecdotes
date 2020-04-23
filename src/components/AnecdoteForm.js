@@ -17,8 +17,7 @@ const AnecdoteForm = (props) => {
     }
     
     dispatch(createAnecdote(anecdoteObject))
-    
-    dispatch(setNotification("You added new anecdote '" + anecdoteObject.content + "'"))
+    dispatch(setNotification(`you added '${anecdoteObject.content}'`,5))
   }
 
   return (

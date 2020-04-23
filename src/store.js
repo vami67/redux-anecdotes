@@ -13,6 +13,9 @@ const reducer = combineReducers({
 
 const store = createStore(
   reducer,
-  composeWithDevTools())
+  composeWithDevTools()
+)
+
+
 
 export default store
